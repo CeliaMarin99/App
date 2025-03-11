@@ -6,13 +6,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="css/estilos.css" rel="stylesheet">
     <link rel="stylesheet" href="icons/font/bootstrap-icons.css">
-   
     <title>Document</title>
 </head>
 <body>
     <div class="container-fluid bg-primary vh-100">
         <div class="d-flex">
-            <a href="registro.html" class="ms-auto text-success text-decoration-none mt-3 px-4 fs-5 fw-normal"><i class="bi bi-person-fill-add px-2"></i>  Registrar usuario</a>
+            <a href="registro.html" class="ms-auto text-success text-decoration-none mt-3 px-4 fs-5 fw-normal">
+                <i class="bi bi-person-fill-add px-2"></i>  Registrar usuario
+            </a>
         </div>
 
         <!--TITULO-->
@@ -22,34 +23,53 @@
         </div>
         <!--Formulario-->
         <div class="d-flex justify-content-center align-items-center">
-       
-            <form class="p-4" style="width: 300px;">
-    
+            <form action="Inicio.html" class="p-4 needs-validation" style="width: 300px;" novalidate>
                 <div class="mb-3 form-floating position-relative">
-                    <input type="email" name="email" id="input-email" class="form-control" required />
-                    <label for="input-email" class="form-label text-light">Usuario</label>
-            
+                    <input id="validationServer01" class="form-control" required />
+                    <label for="validationServer01" class="form-label text-light">Usuario</label>
+                    <div class="invalid-feedback">Por favor ingresa un usuario válido.</div>
                 </div>
+
                 <div class="mb-3 form-floating position-relative">
                     <input type="password" name="password" id="input-password" class="form-control" required />
                     <label for="input-password" class="form-label text-light">Contraseña</label>
+                    <div class="invalid-feedback">Por favor ingresa una contraseña.</div>
                 </div>
 
                 <!--Botón check-->
                 <div class="mb-3 form-check">
-                    <input class="form-check-input bg-light" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label text-light" for="flexCheckDefault">
-                      Recuérdame
+                    <input class="form-check-input" type="checkbox" value="" id="exampleCheck1">
+                    <label class="form-check-label text-light" for="exampleCheck1">
+                        Recuérdame
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-success w-100"><a href="Inicio.html" class="text-decoration-none text-light">Iniciar sesión</a></button>
+                <button type="submit" class="btn btn-success w-100">Iniciar sesión</button>
             </form>
         </div>
-        
     </div>
 
-
     <script src="libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+    <script>
+        // Activa la validación de Bootstrap en el formulario
+        (function () {
+            'use strict';
+            // Obtén todos los formularios a los que les quieras aplicar la validación de Bootstrap
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Recorre cada formulario y añade la validación
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
 </body>
 </html>

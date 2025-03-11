@@ -79,16 +79,16 @@
 
           <div class="col-md-7 border border-primary rounded p-4 bg-fondo mt-3">
             <!--Formulario-->
-            <form action="">
+            <form action="" class="needs-validation" novalidate>
               <div class="d-flex space-between ">
                   <div class="mt-3">
-                      <label for="" class="form-label ">Aparato:</label>
-                      <input type="text" class="form-control">
+                      <label for="validationServer01" class="form-label ">Aparato:</label>
+                      <input id="validationServer01" type="text" class="form-control" required>
                   </div>
 
                   <div class="mt-3">
-                      <label for="" class="form-label">Lugar:</label>
-                      <input type="text" class="form-control">
+                      <label for="validationServer01" class="form-label">Lugar:</label>
+                      <input id="validationServer01" type="text" class="form-control" required>
                   </div>
 
               </div>  
@@ -112,7 +112,7 @@
 
                   <div class="mt-3">
                       <label for="" class="form-label ">Persona a cargo</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" placeholder="pendiente">
                   </div>
 
               </div> 
@@ -190,12 +190,33 @@
             </div>
         </div>
            
-    </div>
-                 
-          </div>
-
       </div>
+                 
+    </div>
 
-    <script src="libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </div>
+
+      <script src="libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+    <script>
+        // Activa la validación de Bootstrap en el formulario
+        (function () {
+            'use strict';
+            // Obtén todos los formularios a los que les quieras aplicar la validación de Bootstrap
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Recorre cada formulario y añade la validación
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
 </body>
 </html>
